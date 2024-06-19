@@ -15,10 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.conf.urls.static import static
+from django.conf import settings
 
 #https://www.django-rest-framework.org/topics/documenting-your-api/
 #https://github.com/axnsan12/drf-yasg
@@ -43,3 +45,6 @@ urlpatterns = [
     # path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-doc'),
     path('api/v1/', include('apps.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #new

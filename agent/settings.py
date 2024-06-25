@@ -87,7 +87,7 @@ DATABASES = {
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT', cast=int),
         'OPTIONS': {
-            'options': '-c search_path=public'
+            'options': '-c search_path=agent'
         }
     }
 }

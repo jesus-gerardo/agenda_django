@@ -19,7 +19,7 @@ class Contact(models.Model):
 
 class ContactPhoneNumbers(models.Model):
     tel = models.CharField(max_length=20, verbose_name='telefono')
-    contact = models.ForeignKey(Contact, on_delete=models.DO_NOTHING)
+    contact = models.ForeignKey(Contact, related_name='phone', on_delete=models.DO_NOTHING)
 
     class Meta:
         db_table='contact_phone_numbers'
